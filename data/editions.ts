@@ -32,18 +32,61 @@ export const editions: Edition[] = [
     city: "'s-Hertogenbosch",
     country: "Netherlands",
     countryCode: "NL",
-    displayDate: "2026",
+    startDate: "2026-07-02",
+    endDate: "2026-07-05",
+    displayDate: "2-5 July 2026",
     format: "7-a-side tournament",
     status: "completed",
-    tagline: "A Dutch detour with orange edges.",
+    tagline: "The Honey Badgers Dutch edition.",
+    introduction:
+      "The Honey Badgers Dutch edition ran from 2 to 5 July 2026 in 's-Hertogenbosch, with football on the Saturday and a long weekend built around arrivals, drinks, canoeing, a beer bicycle, Bossche bollen and proper goodbyes.",
+    artwork: {
+      src: "/editions/2026/den-bosch-2026.png",
+      alt: "Honeybadgers on Tour Den Bosch 2026 tournament artwork",
+      caption: "Den Bosch 2026 tournament artwork",
+    },
+    press: [
+      {
+        title: "Voetbal brengt vrienden uit vijftien landen jaarlijks samen, dit keer bij RKSV Boxtel",
+        source: "Brabants Centrum",
+        url: "https://www.brabantscentrum.nl/boxtel/boxtel/62882/voetbal-brengt-vrienden-uit-vijftien-landen-jaarlijks-samen-d",
+      },
+    ],
+    venue: {
+      name: "RKSV Boxtel",
+      description:
+        "The local news coverage placed the football at RKSV Boxtel, where the international Honey Badgers group gathered around football and friendship.",
+    },
+    sideEvents: [
+      {
+        title: "Thursday arrival",
+        date: "2026-07-02",
+        description: "Arrival in Den Bosch with drinks and dinner.",
+      },
+      {
+        title: "Friday around Den Bosch",
+        date: "2026-07-03",
+        description: "Morning canoeing, lunch, beer bicycle, dinner and an early bedtime.",
+      },
+      {
+        title: "Saturday football",
+        date: "2026-07-04",
+        description: "Bossche bol in the morning, then the football tournament.",
+      },
+      {
+        title: "Sunday goodbyes",
+        date: "2026-07-05",
+        description: "Bye byes before heading home.",
+      },
+    ],
     theme: {
-      background: "#f4eadf",
-      surface: "#fff7ef",
-      text: "#211a15",
-      mutedText: "#685d53",
-      accent: "#e66f1f",
-      secondaryAccent: "#2f5f75",
-      border: "#dfc7b4",
+      background: "#fff0dd",
+      surface: "#fff8ec",
+      text: "#241407",
+      mutedText: "#6f4a2b",
+      accent: "#ff7900",
+      secondaryAccent: "#1f5f7a",
+      border: "#f2b36e",
     },
   },
   {
