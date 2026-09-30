@@ -84,7 +84,9 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
         <Section title={edition.city}>
           <div className="info-grid">
             <InfoCard title="Country" value={edition.country} />
-            <InfoCard title="Travel" value={edition.travel?.notes ?? "Travel notes coming soon"} />
+            <InfoCard title="Airports" value={edition.travel?.airports?.join(" or ") ?? "Travel notes coming soon"} />
+            <InfoCard title="Getting there" value={edition.travel?.transport ?? edition.travel?.notes ?? "Travel notes coming soon"} />
+            <InfoCard title="Train tickets" value={edition.travel?.notes ?? "To be confirmed"} href={edition.travel?.bookingUrl} />
             <InfoCard title="Accommodation" value={edition.travel?.accommodation ?? "To be confirmed"} />
           </div>
         </Section>
