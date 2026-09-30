@@ -87,6 +87,7 @@ export interface Edition {
     transport?: string;
     accommodation?: string;
     notes?: string;
+    bookingUrl?: string;
   };
   winner?: string;
   gallery?: GalleryImage[];
