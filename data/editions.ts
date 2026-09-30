@@ -29,7 +29,7 @@ export const editions: Edition[] = [
   },
   {
     year: 2026,
-    city: "'s-Hertogenbosch",
+    city: "Den Bosch",
     country: "Netherlands",
     countryCode: "NL",
     startDate: "2026-07-02",
@@ -38,7 +38,6 @@ export const editions: Edition[] = [
     format: "7-a-side tournament",
     status: "completed",
     tagline: "The Honey Badgers Dutch edition.",
-    heroCityLines: ["'s-", "Hertogenbosch"],
     introduction:
       "The Honey Badgers Dutch edition ran from 2 to 5 July 2026 in 's-Hertogenbosch, with football on the Saturday and a long weekend built around arrivals, drinks, canoeing, a beer bicycle, Bossche bollen and proper goodbyes.",
     artwork: {
