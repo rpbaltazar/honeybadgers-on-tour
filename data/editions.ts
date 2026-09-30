@@ -29,7 +29,7 @@ export const editions: Edition[] = [
   },
   {
     year: 2026,
-    city: "'s-Hertogenbosch",
+    city: "Den Bosch",
     country: "Netherlands",
     countryCode: "NL",
     startDate: "2026-07-02",

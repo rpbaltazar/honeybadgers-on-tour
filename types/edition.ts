@@ -68,6 +68,7 @@ export interface Edition {
   status: EditionStatus;
   tagline?: string;
   introduction?: string;
+  heroCityLines?: string[];
   artwork?: EditionArtwork;
   press?: PressLink[];
   venue?: {
