@@ -11,7 +11,7 @@ live at their permanent year URLs.
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Static export for Cloudflare Pages
+- Static export for Cloudflare Workers Static Assets
 
 ## Routes
 
@@ -48,4 +48,12 @@ npm run build
 ```
 
 The static site is exported to `out/`, which is configured in `wrangler.toml`
-for Cloudflare Pages.
+as Cloudflare Workers Static Assets.
+
+In Cloudflare's Git build settings, use:
+
+```text
+Build command: npx next build
+Deploy command: npx wrangler deploy
+Root directory: /
+```
