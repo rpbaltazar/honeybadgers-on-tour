@@ -32,7 +32,6 @@ export function EditionHero({ edition }: { edition: Edition }) {
         {edition.artwork ? (
           <figure className="artwork">
             <img src={edition.artwork.src} alt={edition.artwork.alt} />
-            {edition.artwork.caption ? <figcaption>{edition.artwork.caption}</figcaption> : null}
           </figure>
         ) : (
           <div className="poster-mark">

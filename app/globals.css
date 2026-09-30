@@ -124,6 +124,7 @@ button {
   gap: 36px;
   align-items: end;
   min-height: 520px;
+  padding-bottom: 44px;
 }
 
 .hero-copy {
@@ -192,7 +193,6 @@ button {
 
 .artwork {
   display: grid;
-  gap: 12px;
   margin: 0;
 }
 
@@ -202,13 +202,6 @@ button {
   aspect-ratio: 1;
   border: 2px solid var(--accent);
   object-fit: contain;
-}
-
-.artwork figcaption {
-  color: var(--muted-text);
-  font-size: 0.78rem;
-  font-weight: 850;
-  text-transform: uppercase;
 }
 
 .poster-mark {
@@ -372,6 +365,7 @@ button {
   .hero {
     min-height: auto;
     gap: 24px;
+    padding-bottom: 28px;
   }
 
   .hero-title,
