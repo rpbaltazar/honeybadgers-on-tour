@@ -1,0 +1,102 @@
+import type { CSSProperties } from "react";
+import type { Edition } from "@/types/edition";
+import { EditionHero } from "@/components/EditionHero";
+import { EditionNavigation } from "@/components/EditionNavigation";
+import { PastEditions } from "@/components/PastEditions";
+import { Section } from "@/components/Section";
+import { getEditionNeighbors } from "@/data/editions";
+
+interface EditionPageProps {
+  edition: Edition;
+  isHomepage?: boolean;
+}
+
+export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
+  const neighbors = getEditionNeighbors(edition.year);
+  const style = {
+    "--background": edition.theme.background,
+    "--surface": edition.theme.surface,
+    "--text": edition.theme.text,
+    "--muted-text": edition.theme.mutedText,
+    "--accent": edition.theme.accent,
+    "--secondary-accent": edition.theme.secondaryAccent,
+    "--border": edition.theme.border,
+  } as CSSProperties;
+
+  return (
+    <article className="edition-page" style={style}>
+      <div className="edition-shell">
+        <EditionHero edition={edition} />
+
+        <Section title="The Tournament">
+          <p>
+            {edition.introduction ??
+              `${edition.city} ${edition.year} is part of the Honeybadgers on Tour archive. More details, stories and photos can be added here as they become available.`}
+          </p>
+          <div className="info-grid">
+            <InfoCard title="Format" value={edition.format} />
+            <InfoCard title="Status" value={edition.status} />
+            <InfoCard title="Venue" value={edition.venue?.name ?? "To be confirmed"} />
+          </div>
+        </Section>
+
+        <Section title="Teams">
+          {edition.teams?.length ? (
+            <div className="info-grid">
+              {edition.teams.map((team) => (
+                <InfoCard key={team.name} title={team.name} value={team.city ?? team.country ?? ""} />
+              ))}
+            </div>
+          ) : (
+            <p>Teams will be added once confirmed.</p>
+          )}
+        </Section>
+
+        <Section title="Schedule">
+          {edition.schedule?.length ? (
+            <div className="info-grid">
+              {edition.schedule.map((item) => (
+                <InfoCard key={item.title} title={item.title} value={item.time ?? item.stage ?? ""} />
+              ))}
+            </div>
+          ) : (
+            <p>Schedule details will be published closer to the weekend.</p>
+          )}
+        </Section>
+
+        <Section title="The Weekend">
+          {edition.sideEvents?.length ? (
+            <div className="info-grid">
+              {edition.sideEvents.map((event) => (
+                <InfoCard key={event.title} title={event.title} value={event.description ?? ""} />
+              ))}
+            </div>
+          ) : (
+            <p>Football-adjacent plans are still to be confirmed.</p>
+          )}
+        </Section>
+
+        <Section title={edition.city}>
+          <div className="info-grid">
+            <InfoCard title="Country" value={edition.country} />
+            <InfoCard title="Travel" value={edition.travel?.notes ?? "Travel notes coming soon"} />
+            <InfoCard title="Accommodation" value={edition.travel?.accommodation ?? "To be confirmed"} />
+          </div>
+        </Section>
+
+        {isHomepage ? <PastEditions /> : null}
+
+        <EditionNavigation previous={neighbors.previous} next={neighbors.next} />
+      </div>
+    </article>
+  );
+}
+
+function InfoCard({ title, value }: { title: string; value: string }) {
+  return (
+    <div className="info-card">
+      <h3>{title}</h3>
+      <p>{value || "To be confirmed"}</p>
+    </div>
+  );
+}
