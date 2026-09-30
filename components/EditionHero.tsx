@@ -1,13 +1,24 @@
 import type { Edition } from "@/types/edition";
 
 export function EditionHero({ edition }: { edition: Edition }) {
+  const cityLines = edition.heroCityLines ?? [edition.city];
+  const hasLongTitle = cityLines.some((line) => line.length > 10) || edition.city.length > 14;
+
   return (
     <section className="hero">
-      <div>
+      <div className="hero-copy">
         <p className="eyebrow">Honeybadgers on Tour</p>
-        <h1>
-          {edition.city}
-          <br />
+        <h1
+          aria-label={`${edition.city} ${edition.year}`}
+          className="hero-title"
+          data-long={hasLongTitle ? "true" : "false"}
+        >
+          {cityLines.map((line) => (
+            <span key={line}>
+              {line}
+              <br />
+            </span>
+          ))}
           {edition.year}
         </h1>
         <div className="hero-meta">
