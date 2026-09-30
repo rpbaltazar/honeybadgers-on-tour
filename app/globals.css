@@ -200,7 +200,6 @@ button {
   display: block;
   width: 100%;
   aspect-ratio: 1;
-  border: 2px solid var(--accent);
   object-fit: contain;
 }
 
