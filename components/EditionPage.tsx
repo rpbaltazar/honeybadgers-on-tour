@@ -36,7 +36,7 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           <div className="info-grid">
             <InfoCard title="Format" value={edition.format} />
             <InfoCard title="Status" value={edition.status} />
-            <InfoCard title="Venue" value={edition.venue?.name ?? "To be confirmed"} />
+            <InfoCard title="Venue" value={edition.venue?.name ?? "To be confirmed"} href={edition.venue?.mapUrl} />
           </div>
         </Section>
 
@@ -72,6 +72,7 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
                   key={event.title}
                   title={event.title}
                   value={[event.date, event.description].filter(Boolean).join(" — ")}
+                  href={event.url}
                 />
               ))}
             </div>
@@ -109,11 +110,25 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
   );
 }
 
-function InfoCard({ title, value }: { title: string; value: string }) {
-  return (
-    <div className="info-card">
+function InfoCard({ title, value, href }: { title: string; value: string; href?: string }) {
+  const content = (
+    <>
       <h3>{title}</h3>
       <p>{value || "To be confirmed"}</p>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a className="info-card" href={href}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <div className="info-card">
+      {content}
     </div>
   );
 }
