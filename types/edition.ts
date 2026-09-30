@@ -36,6 +36,7 @@ export interface SideEvent {
   title: string;
   date?: string;
   description?: string;
+  url?: string;
 }
 
 export interface GalleryImage {

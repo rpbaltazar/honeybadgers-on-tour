@@ -94,18 +94,74 @@ export const editions: Edition[] = [
     city: "Bath",
     country: "United Kingdom",
     countryCode: "GB",
-    displayDate: "2025",
+    startDate: "2025-07-10",
+    endDate: "2025-07-13",
+    displayDate: "10-13 July 2025",
     format: "11-a-side tournament",
     status: "completed",
-    tagline: "Roman stones, football boots and a proper weekend away.",
+    tagline: "Purple, lime and the West Country away-day machine.",
+    introduction:
+      "Bath 2025 brought the Honeybadgers back to the United Kingdom for an 11-a-side tournament weekend, with the kit palette leaning into purple and lime green inspired by Bristol City's gloriously loud 2017/18 away kit.",
+    artwork: {
+      src: "/editions/2025/bath-2025.png",
+      alt: "Honeybadgers on Tour Bath 2025 tournament artwork",
+      caption: "Bath 2025 tournament artwork",
+    },
+    venue: {
+      name: "Bath tournament venue",
+      mapUrl: "https://maps.app.goo.gl/jMytNbPL1h6k5Etb6?g_st=aw",
+      description: "The 2025 matches were played at the Bath tournament venue linked here.",
+    },
+    sideEvents: [
+      {
+        title: "Wednesday early arrivals",
+        date: "2025-07-09",
+        description: "Optional Gloucester Road drinks for anyone already in Bristol.",
+      },
+      {
+        title: "Prime by Pasture",
+        date: "2025-07-10 18:30",
+        description: "Burgers near Bristol Temple Meads. Walk-up only.",
+        url: "https://primebypasture.com",
+      },
+      {
+        title: "Seven Stars",
+        date: "2025-07-10 19:30",
+        description: "A swift beer one minute from dinner.",
+        url: "http://www.7stars.co.uk",
+      },
+      {
+        title: "Left Handed Giant",
+        date: "2025-07-10 20:00",
+        description: "Sunset craft beers, with pizza available for late arrivals.",
+        url: "https://lefthandedgiant.com/pages/custom-pages/brewpub",
+      },
+      {
+        title: "King Street",
+        date: "2025-07-10 21:30",
+        description: "Small Bar for crispy chicken, then Kongs for anyone going out-out.",
+        url: "https://kongsbars.co.uk/bars/bristol/",
+      },
+      {
+        title: "Last train to Bath",
+        date: "2025-07-10 23:45",
+        description: "Last planned train from Bristol, with cabs back to Bath as the late-night fallback.",
+      },
+    ],
+    travel: {
+      transport:
+        "The Thursday plan stayed central in Bristol so people could come and go around arrivals. The last train to Bath was 23:45.",
+      notes:
+        "Bristol Temple Meads was the Thursday meeting point reference, with Bath as the tournament base.",
+    },
     theme: {
-      background: "#efe5d1",
-      surface: "#fbf6ea",
-      text: "#201f1a",
-      mutedText: "#68604f",
-      accent: "#7b5f3a",
-      secondaryAccent: "#445c6c",
-      border: "#d8c7aa",
+      background: "#241034",
+      surface: "#34154b",
+      text: "#f5f1ff",
+      mutedText: "#d9c8ea",
+      accent: "#b8ff2c",
+      secondaryAccent: "#8c43ff",
+      border: "#7dbe27",
     },
   },
   {
