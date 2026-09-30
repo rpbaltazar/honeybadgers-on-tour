@@ -102,6 +102,11 @@ export const editions: Edition[] = [
     tagline: "Purple, lime and the West Country away-day machine.",
     introduction:
       "Bath 2025 brought the Honeybadgers back to the United Kingdom for an 11-a-side tournament weekend, with the kit palette leaning into purple and lime green inspired by Bristol City's gloriously loud 2017/18 away kit.",
+    artwork: {
+      src: "/editions/2025/bath-2025.png",
+      alt: "Honeybadgers on Tour Bath 2025 tournament artwork",
+      caption: "Bath 2025 tournament artwork",
+    },
     venue: {
       name: "Bath tournament venue",
       mapUrl: "https://maps.app.goo.gl/jMytNbPL1h6k5Etb6?g_st=aw",
