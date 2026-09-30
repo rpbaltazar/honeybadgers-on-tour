@@ -17,13 +17,20 @@ export function EditionHero({ edition }: { edition: Edition }) {
         </div>
       </div>
 
-      <div className="poster" aria-label={`${edition.city} ${edition.year} edition artwork placeholder`}>
-        <div className="poster-mark">
-          <div>
-            <strong>{edition.countryCode}</strong>
-            <span>{edition.tagline ?? "Honeybadgers away"}</span>
+      <div className="poster" aria-label={`${edition.city} ${edition.year} edition artwork`}>
+        {edition.artwork ? (
+          <figure className="artwork">
+            <img src={edition.artwork.src} alt={edition.artwork.alt} />
+            {edition.artwork.caption ? <figcaption>{edition.artwork.caption}</figcaption> : null}
+          </figure>
+        ) : (
+          <div className="poster-mark">
+            <div>
+              <strong>{edition.countryCode}</strong>
+              <span>{edition.tagline ?? "Honeybadgers away"}</span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

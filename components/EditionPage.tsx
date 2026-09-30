@@ -68,7 +68,11 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           {edition.sideEvents?.length ? (
             <div className="info-grid">
               {edition.sideEvents.map((event) => (
-                <InfoCard key={event.title} title={event.title} value={event.description ?? ""} />
+                <InfoCard
+                  key={event.title}
+                  title={event.title}
+                  value={[event.date, event.description].filter(Boolean).join(" — ")}
+                />
               ))}
             </div>
           ) : (
@@ -83,6 +87,19 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
             <InfoCard title="Accommodation" value={edition.travel?.accommodation ?? "To be confirmed"} />
           </div>
         </Section>
+
+        {edition.press?.length ? (
+          <Section title="In The News">
+            <div className="edition-links">
+              {edition.press.map((item) => (
+                <a className="edition-link" href={item.url} key={item.url}>
+                  <h3>{item.source}</h3>
+                  <p>{item.title}</p>
+                </a>
+              ))}
+            </div>
+          </Section>
+        ) : null}
 
         {isHomepage ? <PastEditions /> : null}
 

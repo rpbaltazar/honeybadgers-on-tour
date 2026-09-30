@@ -44,6 +44,18 @@ export interface GalleryImage {
   caption?: string;
 }
 
+export interface EditionArtwork {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface PressLink {
+  title: string;
+  source: string;
+  url: string;
+}
+
 export interface Edition {
   year: number;
   city: string;
@@ -56,6 +68,8 @@ export interface Edition {
   status: EditionStatus;
   tagline?: string;
   introduction?: string;
+  artwork?: EditionArtwork;
+  press?: PressLink[];
   venue?: {
     name?: string;
     address?: string;

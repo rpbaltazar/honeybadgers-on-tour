@@ -175,6 +175,27 @@ button {
   box-shadow: 14px 14px 0 color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
+.artwork {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.artwork img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+}
+
+.artwork figcaption {
+  color: var(--muted-text);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
 .poster-mark {
   display: grid;
   min-height: 330px;
