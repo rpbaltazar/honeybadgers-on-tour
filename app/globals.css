@@ -109,8 +109,11 @@ button {
 
 .edition-page {
   background:
+    var(
+      --page-background,
     radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 18%, transparent), transparent 34rem),
-    linear-gradient(180deg, var(--background), color-mix(in srgb, var(--background) 88%, white));
+    linear-gradient(180deg, var(--background), color-mix(in srgb, var(--background) 88%, white))
+    );
   color: var(--text);
 }
 

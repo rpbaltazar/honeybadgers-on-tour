@@ -14,6 +14,7 @@ interface EditionPageProps {
 export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
   const neighbors = getEditionNeighbors(edition.year);
   const style = {
+    "--page-background": edition.theme.backgroundImage,
     "--background": edition.theme.background,
     "--surface": edition.theme.surface,
     "--text": edition.theme.text,
@@ -63,6 +64,20 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
             <p>Schedule details will be published closer to the weekend.</p>
           )}
         </Section>
+
+        {edition.results?.length ? (
+          <Section title="Results">
+            <div className="info-grid">
+              {edition.results.map((result) => (
+                <InfoCard
+                  key={result.title}
+                  title={result.title}
+                  value={[result.score, result.notes].filter(Boolean).join(" — ")}
+                />
+              ))}
+            </div>
+          </Section>
+        ) : null}
 
         <Section title="The Weekend">
           {edition.sideEvents?.length ? (

@@ -180,18 +180,82 @@ export const editions: Edition[] = [
     city: "Cork",
     country: "Ireland",
     countryCode: "IE",
-    displayDate: "2024",
-    format: "11-a-side match",
+    startDate: "2024-07-25",
+    endDate: "2024-07-28",
+    displayDate: "25-28 July 2024",
+    format: "11-a-side friendly",
     status: "completed",
-    tagline: "A one-match Irish chapter.",
+    tagline: "One match in Cork, one local side, one loss for the archive.",
+    introduction:
+      "Cork 2024 was a Thursday-to-Sunday Irish edition built around a single 11-a-side friendly on 27 July against a local over-33 side. Two planned teams had pulled out because of Gaelic football commitments, so the tournament became a one-match Irish chapter: grass pitch, 12 Honeybadgers, plenty of Guinness and a loss for the archive.",
+    venue: {
+      name: "Local Cork-area grass pitch",
+      description:
+        "The match was played on a grass field against a strong local over-33 side. The exact venue details can be added once confirmed.",
+    },
+    schedule: [
+      {
+        date: "2024-07-27",
+        time: "13:30",
+        title: "Leave for the match",
+        stage: "Travel to the local pitch",
+      },
+      {
+        date: "2024-07-27",
+        time: "15:30",
+        title: "11-a-side friendly",
+        stage: "Match against a local over-33 side",
+      },
+      {
+        date: "2024-07-27",
+        time: "17:30",
+        title: "Post-match food and beers",
+        stage: "Local pub",
+      },
+    ],
+    results: [
+      {
+        title: "Honeybadgers vs local over-33 side",
+        notes: "Honeybadgers lost. Score and opponent name to be added.",
+      },
+    ],
+    sideEvents: [
+      {
+        title: "Thursday arrival",
+        date: "2024-07-25",
+        description: "Meet in Cork for the first few beers of the weekend.",
+      },
+      {
+        title: "Friday in Cork",
+        date: "2024-07-26",
+        description: "Blarney Castle, Jameson Distillery, Dogs, bar, nightclub and bed.",
+      },
+      {
+        title: "Saturday match day",
+        date: "2024-07-27",
+        description:
+          "Leave at 13:30, friendly at 15:30, local pub for food and beers at 17:30, another local pub around 20:00, back to the city around 22:00, then nightclub or whatever people fancied.",
+      },
+      {
+        title: "Sunday free and easy",
+        date: "2024-07-28",
+        description: "Free and easy departure day.",
+      },
+    ],
+    travel: {
+      accommodation: "Hotel rooms were planned two per room, with a possible three-person room option to reduce cost.",
+      notes: "The weather forecast was dry but cold. It was Ireland, so rain was never far away.",
+    },
     theme: {
-      background: "#e8eadc",
-      surface: "#f9f5e8",
-      text: "#15241d",
-      mutedText: "#536358",
-      accent: "#17633c",
-      secondaryAccent: "#c7812c",
-      border: "#cfd8c3",
+      background: "#0b6b3a",
+      backgroundImage:
+        "linear-gradient(135deg, #075c35 0%, #0b6b3a 28%, #f7f2df 54%, #f47a1f 100%)",
+      surface: "#0c5a35",
+      text: "#ffffff",
+      mutedText: "#fff5e8",
+      accent: "#ffffff",
+      secondaryAccent: "#f47a1f",
+      border: "rgba(255, 255, 255, 0.48)",
     },
   },
   {
