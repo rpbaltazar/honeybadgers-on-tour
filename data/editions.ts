@@ -180,18 +180,54 @@ export const editions: Edition[] = [
     city: "Cork",
     country: "Ireland",
     countryCode: "IE",
-    displayDate: "2024",
+    startDate: "2024-07-25",
+    endDate: "2024-07-28",
+    displayDate: "25-28 July 2024",
     format: "11-a-side match",
     status: "completed",
-    tagline: "A one-match Irish chapter.",
+    tagline: "One match in Cork, one local side, one loss for the archive.",
+    introduction:
+      "Cork 2024 was a Thursday-to-Sunday Irish edition built around a single 11-a-side match on 27 July against a local team. The Honeybadgers lost, but the trip earned its place in the archive.",
+    schedule: [
+      {
+        date: "2024-07-27",
+        title: "11-a-side match",
+        stage: "Friendly against a local team",
+      },
+    ],
+    results: [
+      {
+        title: "Honeybadgers vs local Cork team",
+        notes: "Honeybadgers lost. Score and opponent details to be added.",
+      },
+    ],
+    sideEvents: [
+      {
+        title: "Thursday arrival",
+        date: "2024-07-25",
+        description: "Arrival in Cork.",
+      },
+      {
+        title: "Saturday match day",
+        date: "2024-07-27",
+        description: "11-a-side match against a local team.",
+      },
+      {
+        title: "Sunday goodbyes",
+        date: "2024-07-28",
+        description: "Departure day.",
+      },
+    ],
     theme: {
-      background: "#e8eadc",
-      surface: "#f9f5e8",
-      text: "#15241d",
-      mutedText: "#536358",
-      accent: "#17633c",
-      secondaryAccent: "#c7812c",
-      border: "#cfd8c3",
+      background: "#0b6b3a",
+      backgroundImage:
+        "linear-gradient(135deg, #075c35 0%, #0b6b3a 28%, #f7f2df 54%, #f47a1f 100%)",
+      surface: "#0c5a35",
+      text: "#ffffff",
+      mutedText: "#fff5e8",
+      accent: "#ffffff",
+      secondaryAccent: "#f47a1f",
+      border: "rgba(255, 255, 255, 0.48)",
     },
   },
   {

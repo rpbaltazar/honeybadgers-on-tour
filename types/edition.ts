@@ -2,6 +2,7 @@ export type EditionStatus = "upcoming" | "completed";
 
 export interface EditionTheme {
   background: string;
+  backgroundImage?: string;
   surface: string;
   text: string;
   mutedText: string;
