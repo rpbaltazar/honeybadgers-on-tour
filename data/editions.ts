@@ -183,41 +183,69 @@ export const editions: Edition[] = [
     startDate: "2024-07-25",
     endDate: "2024-07-28",
     displayDate: "25-28 July 2024",
-    format: "11-a-side match",
+    format: "11-a-side friendly",
     status: "completed",
     tagline: "One match in Cork, one local side, one loss for the archive.",
     introduction:
-      "Cork 2024 was a Thursday-to-Sunday Irish edition built around a single 11-a-side match on 27 July against a local team. The Honeybadgers lost, but the trip earned its place in the archive.",
+      "Cork 2024 was a Thursday-to-Sunday Irish edition built around a single 11-a-side friendly on 27 July against a local over-33 side. Two planned teams had pulled out because of Gaelic football commitments, so the tournament became a one-match Irish chapter: grass pitch, 12 Honeybadgers, plenty of Guinness and a loss for the archive.",
+    venue: {
+      name: "Local Cork-area grass pitch",
+      description:
+        "The match was played on a grass field against a strong local over-33 side. The exact venue details can be added once confirmed.",
+    },
     schedule: [
       {
         date: "2024-07-27",
-        title: "11-a-side match",
-        stage: "Friendly against a local team",
+        time: "13:30",
+        title: "Leave for the match",
+        stage: "Travel to the local pitch",
+      },
+      {
+        date: "2024-07-27",
+        time: "15:30",
+        title: "11-a-side friendly",
+        stage: "Match against a local over-33 side",
+      },
+      {
+        date: "2024-07-27",
+        time: "17:30",
+        title: "Post-match food and beers",
+        stage: "Local pub",
       },
     ],
     results: [
       {
-        title: "Honeybadgers vs local Cork team",
-        notes: "Honeybadgers lost. Score and opponent details to be added.",
+        title: "Honeybadgers vs local over-33 side",
+        notes: "Honeybadgers lost. Score and opponent name to be added.",
       },
     ],
     sideEvents: [
       {
         title: "Thursday arrival",
         date: "2024-07-25",
-        description: "Arrival in Cork.",
+        description: "Meet in Cork for the first few beers of the weekend.",
+      },
+      {
+        title: "Friday in Cork",
+        date: "2024-07-26",
+        description: "Blarney Castle, Jameson Distillery, Dogs, bar, nightclub and bed.",
       },
       {
         title: "Saturday match day",
         date: "2024-07-27",
-        description: "11-a-side match against a local team.",
+        description:
+          "Leave at 13:30, friendly at 15:30, local pub for food and beers at 17:30, another local pub around 20:00, back to the city around 22:00, then nightclub or whatever people fancied.",
       },
       {
-        title: "Sunday goodbyes",
+        title: "Sunday free and easy",
         date: "2024-07-28",
-        description: "Departure day.",
+        description: "Free and easy departure day.",
       },
     ],
+    travel: {
+      accommodation: "Hotel rooms were planned two per room, with a possible three-person room option to reduce cost.",
+      notes: "The weather forecast was dry but cold. It was Ireland, so rain was never far away.",
+    },
     theme: {
       background: "#0b6b3a",
       backgroundImage:
