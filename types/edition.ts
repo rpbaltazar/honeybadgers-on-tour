@@ -7,6 +7,8 @@ export interface EditionTheme {
   text: string;
   mutedText: string;
   accent: string;
+  timelineAccent?: string;
+  timelineShadow?: string;
   secondaryAccent: string;
   border: string;
 }
