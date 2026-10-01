@@ -256,6 +256,7 @@ export const editions: Edition[] = [
       text: "#ffffff",
       mutedText: "#fff5e8",
       accent: "#ffffff",
+      timelineAccent: "#0b6b3a",
       secondaryAccent: "#f47a1f",
       border: "rgba(255, 255, 255, 0.48)",
     },
