@@ -399,6 +399,7 @@ button {
   color: var(--accent, #0f4f7a);
   font-size: 1.4rem;
   font-weight: 950;
+  text-shadow: var(--timeline-shadow, none);
 }
 
 .timeline-photo {

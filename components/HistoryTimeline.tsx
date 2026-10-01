@@ -13,7 +13,12 @@ export function HistoryTimeline({ editions }: { editions: Edition[] }) {
             className="timeline-item"
             href={edition.year === CURRENT_EDITION ? "/" : `/${edition.year}`}
             key={edition.year}
-            style={{ "--accent": edition.theme.timelineAccent ?? edition.theme.accent } as CSSProperties}
+            style={
+              {
+                "--accent": edition.theme.timelineAccent ?? edition.theme.accent,
+                "--timeline-shadow": edition.theme.timelineShadow ?? "none",
+              } as CSSProperties
+            }
           >
             <div className="timeline-year">{edition.year}</div>
             <div className="timeline-photo" aria-hidden="true">
