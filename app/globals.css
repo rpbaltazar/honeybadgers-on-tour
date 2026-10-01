@@ -390,15 +390,39 @@ button {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 90px minmax(0, 1fr);
+  grid-template-columns: 90px minmax(150px, 220px) minmax(0, 1fr);
   gap: 18px;
-  align-items: start;
+  align-items: center;
 }
 
 .timeline-year {
   color: var(--accent, #0f4f7a);
   font-size: 1.4rem;
   font-weight: 950;
+}
+
+.timeline-photo {
+  display: grid;
+  aspect-ratio: 4 / 3;
+  min-height: 118px;
+  place-items: center;
+  border: 1px dashed color-mix(in srgb, var(--accent, #0f4f7a) 62%, transparent);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent, #0f4f7a) 18%, transparent), transparent),
+    rgba(255, 250, 240, 0.42);
+}
+
+.timeline-photo span {
+  color: rgba(23, 32, 42, 0.54);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.timeline-item h2 {
+  font-size: 0.95rem;
+  line-height: 1.1;
 }
 
 .site-footer {
@@ -477,5 +501,9 @@ button {
 
   .timeline-item {
     grid-template-columns: 1fr;
+  }
+
+  .timeline-photo {
+    min-height: 180px;
   }
 }

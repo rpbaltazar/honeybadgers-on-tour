@@ -95,7 +95,6 @@ export default function HistoryPage() {
         </div>
 
         <section className="timeline-section">
-          <p className="eyebrow">Archive</p>
           <h2>Badgers On Tour</h2>
           <HistoryTimeline editions={editions} />
         </section>
