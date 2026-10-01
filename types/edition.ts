@@ -74,6 +74,7 @@ export interface Edition {
   introduction?: string;
   heroCityLines?: string[];
   artwork?: EditionArtwork;
+  historyPhoto?: EditionArtwork;
   press?: PressLink[];
   venue?: {
     name?: string;

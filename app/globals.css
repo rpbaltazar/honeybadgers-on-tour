@@ -406,12 +406,20 @@ button {
   display: grid;
   aspect-ratio: 4 / 3;
   min-height: 118px;
+  overflow: hidden;
   place-items: center;
   border: 1px dashed color-mix(in srgb, var(--accent, #0f4f7a) 62%, transparent);
   border-radius: 8px;
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--accent, #0f4f7a) 18%, transparent), transparent),
     rgba(255, 250, 240, 0.42);
+}
+
+.timeline-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .timeline-photo span {

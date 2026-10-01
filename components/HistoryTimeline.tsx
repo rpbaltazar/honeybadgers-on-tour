@@ -22,7 +22,11 @@ export function HistoryTimeline({ editions }: { editions: Edition[] }) {
           >
             <div className="timeline-year">{edition.year}</div>
             <div className="timeline-photo" aria-hidden="true">
-              <span>Team photo</span>
+              {edition.historyPhoto ? (
+                <img src={edition.historyPhoto.src} alt="" />
+              ) : (
+                <span>Team photo</span>
+              )}
             </div>
             <div>
               <h2>{edition.city}</h2>
