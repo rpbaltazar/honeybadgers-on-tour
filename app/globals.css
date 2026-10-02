@@ -289,6 +289,60 @@ button {
   color: var(--muted-text);
 }
 
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.team-group-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  padding: 18px;
+}
+
+.team-group-card h3 {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.team-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-list li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.team-badge {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, transparent 44%, var(--text) 45%, var(--text) 55%, transparent 56%),
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 24%, var(--surface)), var(--surface) 62%);
+  box-shadow: inset 0 0 0 3px var(--surface);
+  color: var(--text);
+  font-size: 0.58rem;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
 .edition-nav {
   display: flex;
   justify-content: space-between;
@@ -465,6 +519,7 @@ button {
   .hero,
   .section-grid,
   .info-grid,
+  .group-grid,
   .edition-links,
   .past-grid,
   .history-story,

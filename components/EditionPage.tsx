@@ -46,9 +46,9 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
 
         <Section title="Teams">
           {edition.groups?.length ? (
-            <div className="info-grid">
+            <div className="group-grid">
               {edition.groups.map((group) => (
-                <InfoCard key={group.name} title={group.name} value={group.teams.join(", ")} />
+                <TeamGroupCard key={group.name} name={group.name} teams={group.teams} />
               ))}
             </div>
           ) : edition.teams?.length ? (
@@ -134,6 +134,34 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
       </div>
     </article>
   );
+}
+
+function TeamGroupCard({ name, teams }: { name: string; teams: string[] }) {
+  return (
+    <div className="team-group-card">
+      <h3>{name}</h3>
+      <ul className="team-list">
+        {teams.map((team) => (
+          <li key={team}>
+            <span className="team-badge" aria-hidden="true">
+              {getTeamInitials(team)}
+            </span>
+            <span>{team}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function getTeamInitials(team: string) {
+  return team
+    .split(" ")
+    .filter((word) => !["de", "the"].includes(word.toLowerCase()))
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
 }
 
 function InfoCard({ title, value, href }: { title: string; value: string; href?: string }) {
