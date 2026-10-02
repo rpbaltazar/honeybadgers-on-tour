@@ -232,9 +232,8 @@ export const editions: Edition[] = [
         details: ["Canoeing 🛶", "Beer bicycle 🚲"],
       },
       {
-        title: "Saturday football",
-        date: "2026-07-04",
-        description: "Bossche bol in the morning, then the football tournament.",
+        title: "Saturday - 2026-07-04",
+        details: ["Bossche bol for breakfast ☕️", "Football ⚽️"],
       },
       {
         title: "Sunday goodbyes",
