@@ -52,7 +52,7 @@ export const editions: Edition[] = [
     status: "completed",
     tagline: "The Honey Badgers Dutch edition.",
     introduction:
-      "The Honey Badgers Dutch edition ran from 2 to 5 July 2026 in 's-Hertogenbosch, with football on the Saturday and a long weekend built around arrivals, drinks, canoeing, a beer bicycle, Bossche bollen and proper goodbyes.",
+      "The Honey Badgers Dutch edition took over ’s-Hertogenbosch from 2 to 5 July 2026, headlined by a brilliant seven-a-side tournament featuring former professional players and lots of friends. Around the football came everything that makes the weekend what it is: canoeing through the city, a beer bicycle, plenty of drinks, Bossche bollen and a few days of very questionable athletic preparation.",
     artwork: {
       src: "/editions/2026/den-bosch-2026.png",
       alt: "Honeybadgers on Tour Den Bosch 2026 tournament artwork",
