@@ -11,9 +11,9 @@ export const editions: Edition[] = [
     startDate: "2027-07-01",
     endDate: "2027-07-04",
     displayDate: "1-4 July 2027",
-    format: "To be confirmed",
+    format: "7-a-side tournament",
     status: "upcoming",
-    tagline: "Yellow, purple and a Portuguese summer away weekend.",
+    tagline: "Football meets centuries of student tradition in Coimbra.",
     introduction:
       "Honeybadgers on Tour heads to Coimbra from 1 to 4 July 2027. The tournament format and weekend schedule are still being shaped, but the pitch is set and the next away weekend is officially pointing at Portugal.",
     venue: {
