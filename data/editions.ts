@@ -225,7 +225,10 @@ export const editions: Edition[] = [
       {
         title: "Thursday - 2026-07-02",
         description: "Arrival in Den Bosch with drinks and dinner in a brewery.",
-        url: "https://maps.app.goo.gl/E2a8rwqqBCi6senRA",
+        descriptionLink: {
+          label: "brewery",
+          url: "https://maps.app.goo.gl/E2a8rwqqBCi6senRA",
+        },
       },
       {
         title: "Friday - 2026-07-03",

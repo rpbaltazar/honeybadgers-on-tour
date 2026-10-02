@@ -289,6 +289,25 @@ button {
   color: var(--muted-text);
 }
 
+.info-card a,
+.event-list a {
+  color: var(--accent);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 58%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.info-card a:hover,
+.event-list a:hover {
+  color: var(--secondary-accent);
+  text-decoration-color: var(--secondary-accent);
+}
+
 .event-list {
   display: grid;
   gap: 8px;
@@ -300,12 +319,6 @@ button {
 
 .info-card p + .event-list {
   margin-top: 10px;
-}
-
-.event-list a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
 
 .group-grid {

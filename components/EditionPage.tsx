@@ -191,7 +191,10 @@ function EventCard({ event }: { event: NonNullable<Edition["sideEvents"]>[number
     <>
       <h3>{event.title}</h3>
       {event.date || event.description ? (
-        <p>{[event.date, event.description].filter(Boolean).join(" — ")}</p>
+        <p>
+          {event.date ? `${event.date} — ` : ""}
+          {renderLinkedText(event.description ?? "", event.descriptionLink)}
+        </p>
       ) : null}
       {event.details?.length ? (
         <ul className="event-list">
@@ -211,18 +214,34 @@ function EventCard({ event }: { event: NonNullable<Edition["sideEvents"]>[number
     </>
   );
 
-  if (event.url) {
-    return (
-      <a className="info-card" href={event.url}>
-        {content}
-      </a>
-    );
-  }
-
   return (
     <div className="info-card">
       {content}
     </div>
+  );
+}
+
+function renderLinkedText(text: string, link?: { label: string; url: string }) {
+  if (!link) {
+    return text;
+  }
+
+  const [before, after] = text.split(link.label);
+
+  if (after === undefined) {
+    return (
+      <>
+        {text} <a href={link.url}>{link.label}</a>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {before}
+      <a href={link.url}>{link.label}</a>
+      {after}
+    </>
   );
 }
 
@@ -255,24 +274,10 @@ function getTeamInitials(team: string) {
 }
 
 function InfoCard({ title, value, href }: { title: string; value: string; href?: string }) {
-  const content = (
-    <>
-      <h3>{title}</h3>
-      <p>{value || "To be confirmed"}</p>
-    </>
-  );
-
-  if (href) {
-    return (
-      <a className="info-card" href={href}>
-        {content}
-      </a>
-    );
-  }
-
   return (
     <div className="info-card">
-      {content}
+      <h3>{title}</h3>
+      <p>{href ? <a href={href}>{value || "To be confirmed"}</a> : value || "To be confirmed"}</p>
     </div>
   );
 }
