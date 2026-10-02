@@ -13,6 +13,7 @@ interface EditionPageProps {
 
 export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
   const neighbors = getEditionNeighbors(edition.year);
+  const scheduleSlots = getScheduleSlots(edition.schedule ?? []);
   const style = {
     "--page-background": edition.theme.backgroundImage,
     "--background": edition.theme.background,
@@ -37,12 +38,22 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           <div className="info-grid">
             <InfoCard title="Format" value={edition.format} />
             <InfoCard title="Status" value={edition.status} />
-            <InfoCard title="Venue" value={edition.venue?.name ?? "To be confirmed"} href={edition.venue?.mapUrl} />
+            <InfoCard
+              title="Venue"
+              value={edition.venue?.name ?? "To be confirmed"}
+              href={edition.venue?.websiteUrl ?? edition.venue?.mapUrl}
+            />
           </div>
         </Section>
 
         <Section title="Teams">
-          {edition.teams?.length ? (
+          {edition.groups?.length ? (
+            <div className="group-grid">
+              {edition.groups.map((group) => (
+                <TeamGroupCard key={group.name} name={group.name} teams={group.teams} />
+              ))}
+            </div>
+          ) : edition.teams?.length ? (
             <div className="info-grid">
               {edition.teams.map((team) => (
                 <InfoCard key={team.name} title={team.name} value={team.city ?? team.country ?? ""} />
@@ -55,9 +66,9 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
 
         <Section title="Schedule">
           {edition.schedule?.length ? (
-            <div className="info-grid">
-              {edition.schedule.map((item) => (
-                <InfoCard key={item.title} title={item.title} value={item.time ?? item.stage ?? ""} />
+            <div className="schedule-grid">
+              {scheduleSlots.map((slot) => (
+                <ScheduleSlotCard key={[slot.date, slot.time].filter(Boolean).join("|")} slot={slot} />
               ))}
             </div>
           ) : (
@@ -83,11 +94,9 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           {edition.sideEvents?.length ? (
             <div className="info-grid">
               {edition.sideEvents.map((event) => (
-                <InfoCard
+                <EventCard
                   key={event.title}
-                  title={event.title}
-                  value={[event.date, event.description].filter(Boolean).join(" — ")}
-                  href={event.url}
+                  event={event}
                 />
               ))}
             </div>
@@ -101,8 +110,14 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
             <InfoCard title="Country" value={edition.country} />
             <InfoCard title="Airports" value={edition.travel?.airports?.join(" or ") ?? "Travel notes coming soon"} />
             <InfoCard title="Getting there" value={edition.travel?.transport ?? edition.travel?.notes ?? "Travel notes coming soon"} />
-            <InfoCard title="Train tickets" value={edition.travel?.notes ?? "To be confirmed"} href={edition.travel?.bookingUrl} />
-            <InfoCard title="Accommodation" value={edition.travel?.accommodation ?? "To be confirmed"} />
+            {edition.travel?.bookingUrl ? (
+              <InfoCard title="Train tickets" value={edition.travel?.notes ?? "Book in advance"} href={edition.travel.bookingUrl} />
+            ) : null}
+            <InfoCard
+              title="Accommodation"
+              value={edition.travel?.accommodation ?? "To be confirmed"}
+              href={edition.travel?.accommodationUrl}
+            />
           </div>
         </Section>
 
@@ -110,10 +125,12 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           <Section title="In The News">
             <div className="edition-links">
               {edition.press.map((item) => (
-                <a className="edition-link" href={item.url} key={item.url}>
+                <div className="edition-link" key={item.url}>
                   <h3>{item.source}</h3>
-                  <p>{item.title}</p>
-                </a>
+                  <p>
+                    <a href={item.url}>{item.title}</a>
+                  </p>
+                </div>
               ))}
             </div>
           </Section>
@@ -127,25 +144,142 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
   );
 }
 
-function InfoCard({ title, value, href }: { title: string; value: string; href?: string }) {
+interface ScheduleSlot {
+  date?: string;
+  time?: string;
+  items: NonNullable<Edition["schedule"]>;
+}
+
+function getScheduleSlots(schedule: NonNullable<Edition["schedule"]>) {
+  return schedule.reduce<ScheduleSlot[]>((slots, item) => {
+    const match = slots.find((slot) => slot.date === item.date && slot.time === item.time);
+
+    if (match) {
+      match.items.push(item);
+      return slots;
+    }
+
+    slots.push({
+      date: item.date,
+      time: item.time,
+      items: [item],
+    });
+
+    return slots;
+  }, []);
+}
+
+function ScheduleSlotCard({ slot }: { slot: ScheduleSlot }) {
+  return (
+    <div className="schedule-card">
+      <div className="schedule-time">{slot.time ?? "TBC"}</div>
+      <div className="schedule-matches">
+        {slot.items.map((item) => (
+          <div
+            className="schedule-match"
+            key={[item.title, item.pitch, item.teams?.join("-")].filter(Boolean).join("|")}
+          >
+            <h3>{item.pitch ?? item.title}</h3>
+            <p>{item.pitch ? item.teams?.join(" vs ") : item.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function EventCard({ event }: { event: NonNullable<Edition["sideEvents"]>[number] }) {
   const content = (
     <>
-      <h3>{title}</h3>
-      <p>{value || "To be confirmed"}</p>
+      <h3>{event.title}</h3>
+      {event.date || event.description ? (
+        <p>
+          {event.date ? `${event.date} — ` : ""}
+          {renderLinkedText(event.description ?? "", event.descriptionLink)}
+        </p>
+      ) : null}
+      {event.details?.length ? (
+        <ul className="event-list">
+          {event.details.map((detail) => (
+            <li key={typeof detail === "string" ? detail : detail.label}>
+              {typeof detail === "string" ? (
+                detail
+              ) : detail.url ? (
+                <a href={detail.url}>{detail.label}</a>
+              ) : (
+                detail.label
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </>
   );
-
-  if (href) {
-    return (
-      <a className="info-card" href={href}>
-        {content}
-      </a>
-    );
-  }
 
   return (
     <div className="info-card">
       {content}
+    </div>
+  );
+}
+
+function renderLinkedText(text: string, link?: { label: string; url: string }) {
+  if (!link) {
+    return text;
+  }
+
+  const [before, after] = text.split(link.label);
+
+  if (after === undefined) {
+    return (
+      <>
+        {text} <a href={link.url}>{link.label}</a>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {before}
+      <a href={link.url}>{link.label}</a>
+      {after}
+    </>
+  );
+}
+
+function TeamGroupCard({ name, teams }: { name: string; teams: string[] }) {
+  return (
+    <div className="team-group-card">
+      <h3>{name}</h3>
+      <ul className="team-list">
+        {teams.map((team) => (
+          <li key={team}>
+            <span className="team-badge" aria-hidden="true">
+              {getTeamInitials(team)}
+            </span>
+            <span>{team}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function getTeamInitials(team: string) {
+  return team
+    .split(" ")
+    .filter((word) => !["de", "the"].includes(word.toLowerCase()))
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
+}
+
+function InfoCard({ title, value, href }: { title: string; value: string; href?: string }) {
+  return (
+    <div className="info-card">
+      <h3>{title}</h3>
+      <p>{href ? <a href={href}>{value || "To be confirmed"}</a> : value || "To be confirmed"}</p>
     </div>
   );
 }

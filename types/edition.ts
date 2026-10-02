@@ -20,6 +20,11 @@ export interface Team {
   badge?: string;
 }
 
+export interface TeamGroup {
+  name: string;
+  teams: string[];
+}
+
 export interface ScheduleItem {
   date?: string;
   time?: string;
@@ -39,6 +44,11 @@ export interface SideEvent {
   title: string;
   date?: string;
   description?: string;
+  descriptionLink?: {
+    label: string;
+    url: string;
+  };
+  details?: (string | { label: string; url?: string })[];
   url?: string;
 }
 
@@ -80,9 +90,11 @@ export interface Edition {
     name?: string;
     address?: string;
     mapUrl?: string;
+    websiteUrl?: string;
     description?: string;
   };
   teams?: Team[];
+  groups?: TeamGroup[];
   schedule?: ScheduleItem[];
   results?: Result[];
   sideEvents?: SideEvent[];
@@ -90,6 +102,7 @@ export interface Edition {
     airports?: string[];
     transport?: string;
     accommodation?: string;
+    accommodationUrl?: string;
     notes?: string;
     bookingUrl?: string;
   };
