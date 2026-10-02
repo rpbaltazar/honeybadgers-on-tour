@@ -58,6 +58,10 @@ export const editions: Edition[] = [
       alt: "Honeybadgers on Tour Den Bosch 2026 tournament artwork",
       caption: "Den Bosch 2026 tournament artwork",
     },
+    historyPhoto: {
+      src: "/editions/2026/team.png",
+      alt: "Honeybadgers team photo in Den Bosch 2026",
+    },
     press: [
       {
         title: "Voetbal brengt vrienden uit vijftien landen jaarlijks samen, dit keer bij RKSV Boxtel",
@@ -120,6 +124,10 @@ export const editions: Edition[] = [
       src: "/editions/2025/bath-2025.png",
       alt: "Honeybadgers on Tour Bath 2025 tournament artwork",
       caption: "Bath 2025 tournament artwork",
+    },
+    historyPhoto: {
+      src: "/editions/2025/team.png",
+      alt: "Honeybadgers team photo in Bath 2025",
     },
     venue: {
       name: "Bath tournament venue",
@@ -251,6 +259,10 @@ export const editions: Edition[] = [
       accommodation: "Hotel rooms were planned two per room, with a possible three-person room option to reduce cost.",
       notes: "The weather forecast was dry but cold. It was Ireland, so rain was never far away.",
     },
+    historyPhoto: {
+      src: "/editions/2024/team.png",
+      alt: "Honeybadgers team photo in Cork 2024",
+    },
     theme: {
       background: "#0b6b3a",
       backgroundImage:
@@ -274,6 +286,10 @@ export const editions: Edition[] = [
     format: "11-a-side tournament",
     status: "completed",
     tagline: "The Honeybadgers head east.",
+    historyPhoto: {
+      src: "/editions/2023/team.png",
+      alt: "Honeybadgers team photo in Sofia 2023",
+    },
     theme: {
       background: "#f2eee5",
       surface: "#fffaf2",
