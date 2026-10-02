@@ -196,7 +196,15 @@ function EventCard({ event }: { event: NonNullable<Edition["sideEvents"]>[number
       {event.details?.length ? (
         <ul className="event-list">
           {event.details.map((detail) => (
-            <li key={detail}>{detail}</li>
+            <li key={typeof detail === "string" ? detail : detail.label}>
+              {typeof detail === "string" ? (
+                detail
+              ) : detail.url ? (
+                <a href={detail.url}>{detail.label}</a>
+              ) : (
+                detail.label
+              )}
+            </li>
           ))}
         </ul>
       ) : null}
