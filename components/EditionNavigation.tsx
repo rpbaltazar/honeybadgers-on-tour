@@ -15,15 +15,15 @@ export function EditionNavigation({ previous, next }: EditionNavigationProps) {
   return (
     <nav className="edition-nav" aria-label="Edition navigation">
       <span>
-        {previous ? (
-          <Link href={`/${previous.year}`}>← {previous.city} {previous.year}</Link>
+        {next ? (
+          <Link href={next.year === CURRENT_EDITION ? "/" : `/${next.year}`}>
+            ← {next.city} {next.year}
+          </Link>
         ) : null}
       </span>
       <span>
-        {next ? (
-          <Link href={next.year === CURRENT_EDITION ? "/" : `/${next.year}`}>
-            {next.city} {next.year} →
-          </Link>
+        {previous ? (
+          <Link href={`/${previous.year}`}>{previous.city} {previous.year} →</Link>
         ) : null}
       </span>
     </nav>
