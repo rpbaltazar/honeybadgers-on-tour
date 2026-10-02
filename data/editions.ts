@@ -223,14 +223,13 @@ export const editions: Edition[] = [
     ],
     sideEvents: [
       {
-        title: "Thursday arrival",
-        date: "2026-07-02",
-        description: "Arrival in Den Bosch with drinks and dinner.",
+        title: "Thursday - 2026-07-02",
+        description: "Arrival in Den Bosch with drinks and dinner in a brewery.",
+        url: "https://maps.app.goo.gl/E2a8rwqqBCi6senRA",
       },
       {
-        title: "Friday around Den Bosch",
-        date: "2026-07-03",
-        description: "Morning canoeing, lunch, beer bicycle, dinner and an early bedtime.",
+        title: "Friday - 2026-07-03",
+        details: ["Canoeing 🛶"],
       },
       {
         title: "Saturday football",

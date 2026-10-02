@@ -44,6 +44,7 @@ export interface SideEvent {
   title: string;
   date?: string;
   description?: string;
+  details?: string[];
   url?: string;
 }
 

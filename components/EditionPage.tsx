@@ -94,11 +94,9 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           {edition.sideEvents?.length ? (
             <div className="info-grid">
               {edition.sideEvents.map((event) => (
-                <InfoCard
+                <EventCard
                   key={event.title}
-                  title={event.title}
-                  value={[event.date, event.description].filter(Boolean).join(" — ")}
-                  href={event.url}
+                  event={event}
                 />
               ))}
             </div>
@@ -184,6 +182,38 @@ function ScheduleSlotCard({ slot }: { slot: ScheduleSlot }) {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function EventCard({ event }: { event: NonNullable<Edition["sideEvents"]>[number] }) {
+  const content = (
+    <>
+      <h3>{event.title}</h3>
+      {event.date || event.description ? (
+        <p>{[event.date, event.description].filter(Boolean).join(" — ")}</p>
+      ) : null}
+      {event.details?.length ? (
+        <ul className="event-list">
+          {event.details.map((detail) => (
+            <li key={detail}>{detail}</li>
+          ))}
+        </ul>
+      ) : null}
+    </>
+  );
+
+  if (event.url) {
+    return (
+      <a className="info-card" href={event.url}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <div className="info-card">
+      {content}
     </div>
   );
 }

@@ -289,6 +289,19 @@ button {
   color: var(--muted-text);
 }
 
+.event-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted-text);
+  list-style: none;
+}
+
+.info-card p + .event-list {
+  margin-top: 10px;
+}
+
 .group-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
