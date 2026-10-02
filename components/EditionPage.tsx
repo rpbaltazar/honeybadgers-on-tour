@@ -125,10 +125,12 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           <Section title="In The News">
             <div className="edition-links">
               {edition.press.map((item) => (
-                <a className="edition-link" href={item.url} key={item.url}>
+                <div className="edition-link" key={item.url}>
                   <h3>{item.source}</h3>
-                  <p>{item.title}</p>
-                </a>
+                  <p>
+                    <a href={item.url}>{item.title}</a>
+                  </p>
+                </div>
               ))}
             </div>
           </Section>

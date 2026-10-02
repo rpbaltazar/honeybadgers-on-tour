@@ -289,6 +289,7 @@ button {
   color: var(--muted-text);
 }
 
+.edition-link a,
 .info-card a,
 .event-list a {
   color: var(--accent);
@@ -302,6 +303,7 @@ button {
     text-decoration-color 160ms ease;
 }
 
+.edition-link a:hover,
 .info-card a:hover,
 .event-list a:hover {
   color: var(--secondary-accent);
