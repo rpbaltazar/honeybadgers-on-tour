@@ -243,6 +243,12 @@ export const editions: Edition[] = [
         description: "Bye byes before heading home.",
       },
     ],
+    travel: {
+      airports: ["Amsterdam", "Eindhoven"],
+      transport: "Fly into Amsterdam or Eindhoven, then continue on to Den Bosch.",
+      accommodation: "The Den",
+      accommodationUrl: "https://maps.app.goo.gl/6iV6B9eDm46D18uBA",
+    },
     theme: {
       background: "#fff0dd",
       surface: "#fff8ec",

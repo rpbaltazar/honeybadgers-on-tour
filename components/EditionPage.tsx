@@ -13,6 +13,7 @@ interface EditionPageProps {
 
 export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
   const neighbors = getEditionNeighbors(edition.year);
+  const scheduleSlots = getScheduleSlots(edition.schedule ?? []);
   const style = {
     "--page-background": edition.theme.backgroundImage,
     "--background": edition.theme.background,
@@ -65,13 +66,9 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
 
         <Section title="Schedule">
           {edition.schedule?.length ? (
-            <div className="info-grid">
-              {edition.schedule.map((item) => (
-                <InfoCard
-                  key={[item.date, item.time, item.title, item.pitch, item.teams?.join("-")].filter(Boolean).join("|")}
-                  title={item.time ? [item.time, item.pitch].filter(Boolean).join(" - ") : item.title}
-                  value={[item.title, item.teams?.join(" vs "), item.stage].filter(Boolean).join(" - ")}
-                />
+            <div className="schedule-grid">
+              {scheduleSlots.map((slot) => (
+                <ScheduleSlotCard key={[slot.date, slot.time].filter(Boolean).join("|")} slot={slot} />
               ))}
             </div>
           ) : (
@@ -115,8 +112,14 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
             <InfoCard title="Country" value={edition.country} />
             <InfoCard title="Airports" value={edition.travel?.airports?.join(" or ") ?? "Travel notes coming soon"} />
             <InfoCard title="Getting there" value={edition.travel?.transport ?? edition.travel?.notes ?? "Travel notes coming soon"} />
-            <InfoCard title="Train tickets" value={edition.travel?.notes ?? "To be confirmed"} href={edition.travel?.bookingUrl} />
-            <InfoCard title="Accommodation" value={edition.travel?.accommodation ?? "To be confirmed"} />
+            {edition.travel?.bookingUrl ? (
+              <InfoCard title="Train tickets" value={edition.travel?.notes ?? "Book in advance"} href={edition.travel.bookingUrl} />
+            ) : null}
+            <InfoCard
+              title="Accommodation"
+              value={edition.travel?.accommodation ?? "To be confirmed"}
+              href={edition.travel?.accommodationUrl}
+            />
           </div>
         </Section>
 
@@ -138,6 +141,50 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
         <EditionNavigation previous={neighbors.previous} next={neighbors.next} />
       </div>
     </article>
+  );
+}
+
+interface ScheduleSlot {
+  date?: string;
+  time?: string;
+  items: NonNullable<Edition["schedule"]>;
+}
+
+function getScheduleSlots(schedule: NonNullable<Edition["schedule"]>) {
+  return schedule.reduce<ScheduleSlot[]>((slots, item) => {
+    const match = slots.find((slot) => slot.date === item.date && slot.time === item.time);
+
+    if (match) {
+      match.items.push(item);
+      return slots;
+    }
+
+    slots.push({
+      date: item.date,
+      time: item.time,
+      items: [item],
+    });
+
+    return slots;
+  }, []);
+}
+
+function ScheduleSlotCard({ slot }: { slot: ScheduleSlot }) {
+  return (
+    <div className="schedule-card">
+      <div className="schedule-time">{slot.time ?? "TBC"}</div>
+      <div className="schedule-matches">
+        {slot.items.map((item) => (
+          <div
+            className="schedule-match"
+            key={[item.title, item.pitch, item.teams?.join("-")].filter(Boolean).join("|")}
+          >
+            <h3>{item.pitch ?? item.title}</h3>
+            <p>{[item.pitch ? item.teams?.join(" vs ") : item.title, item.stage].filter(Boolean).join(" - ")}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

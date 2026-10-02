@@ -97,6 +97,7 @@ export interface Edition {
     airports?: string[];
     transport?: string;
     accommodation?: string;
+    accommodationUrl?: string;
     notes?: string;
     bookingUrl?: string;
   };
