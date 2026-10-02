@@ -74,6 +74,21 @@ export const editions: Edition[] = [
       description:
         "The local news coverage placed the football at RKSV Boxtel, where the international Honey Badgers group gathered around football and friendship.",
     },
+    tournamentDetails: [
+      "8 teams split into 2 groups of 4",
+      "20 minutes per match",
+      "Final standings decided by matching group positions: 1st vs 1st for 1st and 2nd, 2nd vs 2nd for 3rd and 4th, 3rd vs 3rd for 5th and 6th, 4th vs 4th for 7th and 8th",
+    ],
+    groups: [
+      {
+        name: "Group A",
+        teams: ["The Honeybadgers", "De Ronde Tafel", "Mercosur", "FC de Pruiken"],
+      },
+      {
+        name: "Group B",
+        teams: ["De Vedetten", "FC Bassalona", "Boc Legends", "Boxtel 5"],
+      },
+    ],
     sideEvents: [
       {
         title: "Thursday arrival",

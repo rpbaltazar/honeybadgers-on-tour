@@ -38,11 +38,20 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
             <InfoCard title="Format" value={edition.format} />
             <InfoCard title="Status" value={edition.status} />
             <InfoCard title="Venue" value={edition.venue?.name ?? "To be confirmed"} href={edition.venue?.mapUrl} />
+            {edition.tournamentDetails?.map((detail) => (
+              <InfoCard key={detail} title="Tournament detail" value={detail} />
+            ))}
           </div>
         </Section>
 
         <Section title="Teams">
-          {edition.teams?.length ? (
+          {edition.groups?.length ? (
+            <div className="info-grid">
+              {edition.groups.map((group) => (
+                <InfoCard key={group.name} title={group.name} value={group.teams.join(", ")} />
+              ))}
+            </div>
+          ) : edition.teams?.length ? (
             <div className="info-grid">
               {edition.teams.map((team) => (
                 <InfoCard key={team.name} title={team.name} value={team.city ?? team.country ?? ""} />

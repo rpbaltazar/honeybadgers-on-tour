@@ -20,6 +20,11 @@ export interface Team {
   badge?: string;
 }
 
+export interface TeamGroup {
+  name: string;
+  teams: string[];
+}
+
 export interface ScheduleItem {
   date?: string;
   time?: string;
@@ -83,6 +88,8 @@ export interface Edition {
     description?: string;
   };
   teams?: Team[];
+  groups?: TeamGroup[];
+  tournamentDetails?: string[];
   schedule?: ScheduleItem[];
   results?: Result[];
   sideEvents?: SideEvent[];
