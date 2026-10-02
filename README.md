@@ -20,7 +20,7 @@ live at their permanent year URLs.
 - `/2025` — Bath, United Kingdom
 - `/2024` — Cork, Ireland
 - `/2023` — Sofia, Bulgaria
-- `/2022` — Bucharest, Romania
+- `/2022` — Belgrade, Serbia
 - `/history` — overall archive timeline
 
 ## Project Structure

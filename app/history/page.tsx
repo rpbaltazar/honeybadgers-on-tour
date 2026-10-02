@@ -71,7 +71,7 @@ export default function HistoryPage() {
               the archive.
             </p>
             <p>
-              The weekends have taken the group through Romania, Bulgaria,
+              The weekends have taken the group through Serbia, Bulgaria,
               Ireland, the United Kingdom and the Netherlands, with Portugal
               next. Not everyone can make every year, but a solid core keeps
               showing up.
