@@ -1,11 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import type { Edition } from "@/types/edition";
 
 export function PastToursMenu({ editions }: { editions: Edition[] }) {
   const menuRef = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    function closeOnOutsideClick(event: MouseEvent) {
+      const menu = menuRef.current;
+
+      if (menu && !menu.contains(event.target as Node)) {
+        menu.open = false;
+      }
+    }
+
+    document.addEventListener("click", closeOnOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", closeOnOutsideClick);
+    };
+  }, []);
 
   return (
     <details className="past-menu" ref={menuRef}>
