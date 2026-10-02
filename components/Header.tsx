@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PastToursMenu } from "@/components/PastToursMenu";
 import { CURRENT_EDITION, getPastEditions } from "@/data/editions";
 
 export function Header() {
@@ -15,16 +16,7 @@ export function Header() {
         <nav className="nav" aria-label="Main navigation">
           <Link href="/">{CURRENT_EDITION}</Link>
           <Link href="/history">History</Link>
-          <details className="past-menu">
-            <summary>Past Tours</summary>
-            <div className="past-menu-list">
-              {pastEditions.map((edition) => (
-                <Link key={edition.year} href={`/${edition.year}`}>
-                  {edition.year} — {edition.city}
-                </Link>
-              ))}
-            </div>
-          </details>
+          <PastToursMenu editions={pastEditions} />
         </nav>
       </div>
     </header>
