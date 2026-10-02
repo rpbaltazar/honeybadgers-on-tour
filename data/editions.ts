@@ -187,7 +187,7 @@ export const editions: Edition[] = [
         time: "17:15",
         title: "7th-place match",
         teams: ["4th in Group A", "4th in Group B"],
-        pitch: "Pitch 1",
+        pitch: "Pitch 1 - 7th and 8th",
         stage: "20 minutes",
       },
       {
@@ -195,7 +195,7 @@ export const editions: Edition[] = [
         time: "17:15",
         title: "5th-place match",
         teams: ["3rd in Group A", "3rd in Group B"],
-        pitch: "Pitch 2",
+        pitch: "Pitch 2 - 5th and 6th",
         stage: "20 minutes",
       },
       {
@@ -203,7 +203,7 @@ export const editions: Edition[] = [
         time: "17:40",
         title: "3rd-place match",
         teams: ["2nd in Group A", "2nd in Group B"],
-        pitch: "Pitch 2",
+        pitch: "Pitch 2 - 3rd and 4th",
         stage: "20 minutes",
       },
       {
@@ -211,7 +211,7 @@ export const editions: Edition[] = [
         time: "17:40",
         title: "Final",
         teams: ["1st in Group A", "1st in Group B"],
-        pitch: "Pitch 1",
+        pitch: "Pitch 1 - 1st and 2nd",
         stage: "20 minutes",
       },
       {
