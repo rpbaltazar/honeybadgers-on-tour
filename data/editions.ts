@@ -249,7 +249,7 @@ export const editions: Edition[] = [
     ],
     travel: {
       airports: ["Amsterdam", "Eindhoven"],
-      transport: "Fly into Amsterdam or Eindhoven, then continue on to Den Bosch.",
+      transport: "Fly into Amsterdam or Eindhoven, then continue on to Den Bosch with train.",
       accommodation: "The Den",
       accommodationUrl: "https://maps.app.goo.gl/6iV6B9eDm46D18uBA",
     },
