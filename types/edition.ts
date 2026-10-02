@@ -85,11 +85,11 @@ export interface Edition {
     name?: string;
     address?: string;
     mapUrl?: string;
+    websiteUrl?: string;
     description?: string;
   };
   teams?: Team[];
   groups?: TeamGroup[];
-  tournamentDetails?: string[];
   schedule?: ScheduleItem[];
   results?: Result[];
   sideEvents?: SideEvent[];

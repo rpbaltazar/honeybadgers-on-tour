@@ -37,10 +37,11 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           <div className="info-grid">
             <InfoCard title="Format" value={edition.format} />
             <InfoCard title="Status" value={edition.status} />
-            <InfoCard title="Venue" value={edition.venue?.name ?? "To be confirmed"} href={edition.venue?.mapUrl} />
-            {edition.tournamentDetails?.map((detail) => (
-              <InfoCard key={detail} title="Tournament detail" value={detail} />
-            ))}
+            <InfoCard
+              title="Venue"
+              value={edition.venue?.name ?? "To be confirmed"}
+              href={edition.venue?.websiteUrl ?? edition.venue?.mapUrl}
+            />
           </div>
         </Section>
 
@@ -66,7 +67,11 @@ export function EditionPage({ edition, isHomepage = false }: EditionPageProps) {
           {edition.schedule?.length ? (
             <div className="info-grid">
               {edition.schedule.map((item) => (
-                <InfoCard key={item.title} title={item.title} value={item.time ?? item.stage ?? ""} />
+                <InfoCard
+                  key={[item.date, item.time, item.title, item.pitch, item.teams?.join("-")].filter(Boolean).join("|")}
+                  title={item.time ? [item.time, item.pitch].filter(Boolean).join(" - ") : item.title}
+                  value={[item.title, item.teams?.join(" vs "), item.stage].filter(Boolean).join(" - ")}
+                />
               ))}
             </div>
           ) : (
