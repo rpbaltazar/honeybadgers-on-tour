@@ -2,7 +2,7 @@ import type { Edition } from "@/types/edition";
 
 export function EditionHero({ edition }: { edition: Edition }) {
   const cityLines = edition.heroCityLines ?? [edition.city];
-  const hasLongTitle = cityLines.some((line) => line.length > 10) || edition.city.length > 14;
+  const hasLongTitle = cityLines.some((line) => line.length >= 8) || edition.city.length > 14;
 
   return (
     <section className="hero">
