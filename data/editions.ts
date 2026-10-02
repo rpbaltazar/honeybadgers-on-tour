@@ -229,7 +229,7 @@ export const editions: Edition[] = [
       },
       {
         title: "Friday - 2026-07-03",
-        details: ["Canoeing 🛶"],
+        details: ["Canoeing 🛶", "Beer bicycle 🚲"],
       },
       {
         title: "Saturday football",
