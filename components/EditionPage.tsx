@@ -180,7 +180,7 @@ function ScheduleSlotCard({ slot }: { slot: ScheduleSlot }) {
             key={[item.title, item.pitch, item.teams?.join("-")].filter(Boolean).join("|")}
           >
             <h3>{item.pitch ?? item.title}</h3>
-            <p>{[item.pitch ? item.teams?.join(" vs ") : item.title, item.stage].filter(Boolean).join(" - ")}</p>
+            <p>{item.pitch ? item.teams?.join(" vs ") : item.title}</p>
           </div>
         ))}
       </div>
